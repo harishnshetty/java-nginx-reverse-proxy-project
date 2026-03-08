@@ -102,8 +102,7 @@ mysql -h studentdb-instance-1.cne0wymoyx30.ap-south-1.rds.amazonaws.com -u admin
 ```bash
 sudo nano /opt/tomcat9/conf/context.xml
 ```
-```
-  GNU nano 7.2                                                         /opt/tomcat9/conf/context.xml
+```bash
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
