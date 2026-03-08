@@ -97,7 +97,7 @@ sudo systemctl start mysql
 sudo systemctl enable mysql
 ```
 ```bash
-mysql -h studentdb-instance-1.cne0wymoyx30.ap-south-1.rds.amazonaws.com -u admin -p -e "USE studentdb; DROP TABLE IF EXISTS students; CREATE TABLE students (student_id INT NOT NULL AUTO_INCREMENT, student_name VARCHAR(100) NOT NULL, student_addr VARCHAR(255), student_age INT, student_qual VARCHAR(100),student_percent FLOAT, student_year_passed INT, PRIMARY KEY (student_id));"
+mysql -h studentdb-instance-1.cne0wymoyx30.ap-south-1.rds.amazonaws.com -u admin -p -e "CREATE DATABASE IF NOT EXISTS studentdb; USE studentdb; DROP TABLE IF EXISTS students; CREATE TABLE students (student_id INT NOT NULL AUTO_INCREMENT, student_name VARCHAR(100) NOT NULL, student_addr VARCHAR(255), student_age INT, student_qual VARCHAR(100),student_percent FLOAT, student_year_passed INT, PRIMARY KEY (student_id));"
 # Enter password: rootroot
 ```
 
@@ -106,6 +106,7 @@ mysql -h studentdb-instance-1.cne0wymoyx30.ap-south-1.rds.amazonaws.com -u admin
 
 ### Set the Context XML in the Backend EC2 Machine
 ```bash
+sudo mv /opt/tomcat9/conf/context.xml /opt/tomcat9/conf/context.xml.bak
 sudo nano /opt/tomcat9/conf/context.xml
 ```
 ```bash
@@ -124,6 +125,12 @@ sudo nano /opt/tomcat9/conf/context.xml
 ```
 
 
+## Restart the tomcat
+# Start Tomcat
+```bash
+sudo /opt/tomcat9/bin/shutdown.sh
+sudo /opt/tomcat9/bin/startup.sh
+```
 ## STEP 5 – Setup Nginx Reverse Proxy on Proxy EC2 in Amazon Linux
 
 ### SSH into Proxy EC2
@@ -160,6 +167,15 @@ location /student/ {
 }
 ```
 
+```nginx
+location /student/ {
+    proxy_pass         http://172.31.11.73:8080/student/;
+    proxy_set_header   Host              $host;
+    proxy_set_header   X-Real-IP         $remote_addr;
+    proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+}
+```
 >  Replace `<Backend-Private-IP>` with your backend EC2's **Private IP** (e.g., `172.31.31.215`).  
 > Use the **private IP**, not the public IP, for internal communication.
 
