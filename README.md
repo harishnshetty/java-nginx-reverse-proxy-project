@@ -61,13 +61,14 @@ mv mysql-connector-java-5.1.49.jar mysql-connector-java.jar
 
 # Set permissions
 sudo chmod -R 755 /opt/tomcat9
+```
 
 ```bash
 cd /opt/tomcat/webapps/
 sudo wget https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
 ```
 
-
+```bash
 # Start Tomcat
 sudo /opt/tomcat9/bin/shutdown.sh
 sudo /opt/tomcat9/bin/startup.sh
@@ -98,7 +99,7 @@ mysql -h studentdb-instance-1.cne0wymoyx30.ap-south-1.rds.amazonaws.com -u admin
 
 
 
-## STEP 7 – Setup Nginx Reverse Proxy on Proxy EC2 in amazon linux
+## STEP 4 – Setup Nginx Reverse Proxy on Proxy EC2 in Amazon Linux
 
 ### SSH into Proxy EC2
 
@@ -124,12 +125,9 @@ sudo nano /etc/nginx/nginx.conf
 
 Inside the existing `server { }` block, add this `location` block:
 
-
-curl http://172.31.3.218/student
-
 ```nginx
 location /student/ {
-    proxy_pass         http://tomcat-private-ip:8080/student/;
+    proxy_pass         http://<Backend-Private-IP>:8080/student/;
     proxy_set_header   Host              $host;
     proxy_set_header   X-Real-IP         $remote_addr;
     proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
@@ -149,4 +147,7 @@ sudo nginx -t
 # Restart Nginx to apply changes
 sudo systemctl restart nginx
 ```
-http://<proxy-public-ip>/student/viewStudents
+
+```text
+http://proxy-public-ip/student/viewStudents
+```
