@@ -1,4 +1,10 @@
 # java-nginx-reverse-proxy-project
+## For more projects, check out  
+[https://harishnshetty.github.io/projects.html](https://harishnshetty.github.io/projects.html)
+
+[![Video Tutorial](https://github.com/harishnshetty/image-data-project/blob/14a9dff8d061a153eeeb15b091e6c25b7bb00ee0/app1-java.png)](https://youtu.be/BgyYqUXuHuk?si=Gi6vkxhnVJQBILkG)
+
+[![Channel Link](https://github.com/harishnshetty/image-data-project/blob/14a9dff8d061a153eeeb15b091e6c25b7bb00ee0/app2-java.png)](https://youtu.be/BgyYqUXuHuk?si=Gi6vkxhnVJQBILkG)
 
 
 ## 🏗️ Architecture Overview
