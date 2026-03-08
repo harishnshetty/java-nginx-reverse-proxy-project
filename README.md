@@ -2,9 +2,12 @@
 ## For more projects, check out  
 [https://harishnshetty.github.io/projects.html](https://harishnshetty.github.io/projects.html)
 
-[![Video Tutorial](https://github.com/harishnshetty/image-data-project/blob/14a9dff8d061a153eeeb15b091e6c25b7bb00ee0/app1-java.png)](https://youtu.be/BgyYqUXuHuk?si=Gi6vkxhnVJQBILkG)
 
-[![Channel Link](https://github.com/harishnshetty/image-data-project/blob/14a9dff8d061a153eeeb15b091e6c25b7bb00ee0/app2-java.png)](https://youtu.be/BgyYqUXuHuk?si=Gi6vkxhnVJQBILkG)
+[![Video Tutorial](https://github.com/harishnshetty/image-data-project/blob/1326e37e54ba6972ff41d1a98df8036703bd0622/app3-java.jpg)](https://youtu.be/VBHTuly1MUU)
+
+[![Video Tutorial](https://github.com/harishnshetty/image-data-project/blob/14a9dff8d061a153eeeb15b091e6c25b7bb00ee0/app1-java.png)](https://youtu.be/VBHTuly1MUU)
+
+[![Channel Link](https://github.com/harishnshetty/image-data-project/blob/14a9dff8d061a153eeeb15b091e6c25b7bb00ee0/app2-java.png)](https://youtu.be/VBHTuly1MUU)
 
 
 ## 🏗️ Architecture Overview
