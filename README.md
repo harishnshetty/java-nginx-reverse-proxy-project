@@ -95,11 +95,31 @@ mysql -h studentdb-instance-1.cne0wymoyx30.ap-south-1.rds.amazonaws.com -u admin
 # Enter password: rootroot
 ```
 
+## STEP 4 – MYSQL AURORA DB SETUP
 
 
+### Set the Context XML in the Backend EC2 Machine
+```bash
+sudo nano /opt/tomcat9/conf/context.xml
+```
+```
+  GNU nano 7.2                                                         /opt/tomcat9/conf/context.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+    <Resource name="jdbc/TestDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="admin"
+              password="rootroot"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://studentdb-instance-1.cne0wymoyx30.ap-south-1.rds.amazonaws.com:3306/studentdb"/>
+</Context>
+```
 
 
-## STEP 4 – Setup Nginx Reverse Proxy on Proxy EC2 in Amazon Linux
+## STEP 5 – Setup Nginx Reverse Proxy on Proxy EC2 in Amazon Linux
 
 ### SSH into Proxy EC2
 
