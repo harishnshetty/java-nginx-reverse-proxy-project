@@ -71,7 +71,7 @@ sudo chmod -R 755 /opt/tomcat9
 
 ```bash
 cd /opt/tomcat/webapps/
-sudo wget https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
+sudo wget https://raw.githubusercontent.com/harishnshetty/java-nginx-reverse-proxy-project/refs/heads/main/student.war
 ```
 
 ```bash
